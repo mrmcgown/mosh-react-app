@@ -69,7 +69,99 @@ NOTE: Why is Redux not taught with this course?
 
 ## ES6 Refresher
 
+1. Introduction
+
+-
+
+2. Let vs Var vs Const
+
+- `var` restricts scope to a function, not a coding block
+- `let` restricts scope to a coding block and is maleable
+- `const` restricts scope to a coding block and is not maleable
+
+3. Objects
+
+- functions that are set as values of keys in objects are known as "methods"; es6 syntax does not require a colon to separate the key and the function value, i.e. `walk() {}`
+- when targeting keys within an object, you can reference a key with either dot or square bracket notation; dot is used when you know what property you want to access, while square brackets are used when you are not sure because you may be accepting input from an input field from a client
+
+4. The this Keyword
+
+-
+
+5. Binding this
+6. Arrow Functions
+7. Arrow Functions and this
+8. Array.map Method
+9. Object Destructuring
+10. Spread Operator
+11. Classes
+12. Inheritance
+13. Modules
+14. Named and Default Exports
+
 ## Components
+
+1. Introduction
+
+- Looking at basic e-commerce cart with navbar and cart item count, quantity of each item, add and subtract quantity buttons, delete item button, and counters that update with the press of each button (including some css changes when count gets to zero)
+
+2. Setting up the Project
+
+- create-react-app counter-app
+- install boostrap 4.1.1
+
+3. Your First React Component
+
+- create folder (components) and in that folder, a file (counter.jsx); important to use .jsx for better code completion
+- use code snippets from Simple React Snippets extension to speed up typing
+- export class Counter from components/counter.jsx, then import in index.js
+
+4. Specifying Children
+
+- adding an increment button
+- multiple jsx expressions must have a single parent element
+- React.Fragment as an element can replace the parent element (doesn't actually create anything once rendered in the browser, eliminates unnecessary div)
+
+5. Embedding Expressions
+
+- instead of hardcoding "Hello World" set it up to display dynamically using "state" property
+- state is a special property, an object that collects any data the component needs
+- use `{this.state.<state property>}`
+- jsx expressions are just like js expressions and can be stored in variables or returned, etc.
+
+6. Setting Attributes
+
+- adding an image element and setting the value of source attribute dynamically
+- in the state object, add imageUrl property
+- in the img element, use curly braces to render an element dynamically for src
+- for styling css, set a "styles" object below the state, then use the word "style" as an attribute for an element and reference the styles object with curly braces
+- you can also use double curly braces, e.g. `{{fontSize:30}}` instead of referencing the styles object
+
+7. Rendering Classes Dynamically
+
+- change color of count button based on count number
+- for className attribute, set value to {} and use t-his
+- refactor getBadgeColor() by moving it outside of render() to keep render() clean
+
+8. Rendering Lists
+
+- use .map() to dynamically render an array
+- for a list, enter a new property in the state object, then set an array to the value of that property (e.g. `tags: ["tag1", "tag2", "tag3"]`)
+- now you can reference that property to dynamically render the list, just use {}
+- remember to also set up a unique "key" (react word for id attribute) for each item in that list, this can be dynamically rendered as well
+- it doesn't matter if the key is repeated in a different list, it just needs to be unique in the scope of each list
+
+9. Conditional Rendering
+
+- there are two ways to do this: first, create a separate method, e.g. `renderTags()` and include an if statement; second, use the `&&` (a.k.a. the logical AND) with the condition first, and the action second, if the condition is false, the action will not happen
+
+10. Handling Events
+
+- add the property in the jsx element, e.g. `onClick` and set it to `{this.<method name>}` without parentheses following the method
+
+11. Binding Event Handlers
+
+-
 
 ## Composing Components
 
