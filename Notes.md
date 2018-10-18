@@ -213,6 +213,96 @@ NOTE: Why is Redux not taught with this course?
 
 ## Composing Components
 
+1. Introduction
+
+   - Topics include: Passing Data, Raising and Handling Events, Composing Multiple Components in Sync, Composing Functional Components, Creating Lifecycle Hooks
+
+2. Composing Components
+
+   - instead of hard-coding every counter in `render()`, make them an array value of a key (counters) in the state object
+   - for each item in the array, use curly braces
+   - in `render()`, use `.map()` to display each counter component, like so
+     `{this.state.counters.map(counter => <Counter key={counter.id} />)}`
+
+3. Passing Data to Components
+
+   - Every React component has a property called `props`
+   - use `this.props.value` as a value of a property in the state, then reference it when dynamically rendering the value as an attribute of an element or component
+
+4. Passing Children
+
+   - special prop, `children`, can be used when we want to pass something between the opening and closing tag of an element and then reference it somewhere else, i.e. `this.props.children`
+
+5. Debugging React Apps
+
+   - Use React Developer Tools extension for chrome (made by Facebook), it allows for quick debugging through the developer tools console in chrome
+
+6. Props vs State
+
+   - Props includes data that we give to a component and is read-only (cannot change the input to the component inside of the component)
+   - State includes data that is local/private to that component (other components can't access that data)
+   - to modify an input during the life cycle of a component, then you get the input and put it in the state
+
+7. Raising and Handling Events
+
+   - Add "Delete" button in counter.jsx, just after the increment button inside of `render()`
+   - the component that owns a piece of the state, should be the one modifying it
+   - modify counter component to raise an event, `onDelete()`, then counters.jsx will handle the event, `handleDelete()`
+   - concept of raising and handling events is common in many user-interface libraries
+   - add new method to counters.jsx, and pass a reference to that method, via props, to counter.jsx
+
+8) Updating the State
+
+   - in counter.jsx, pass the id of the counter to the delete button by adding an arrow function inside the {} for `onClick()`, then call `this.props.onDelete(this.props.id)`
+   - in counters.jsx, add `handleDelete()` as an arrow function with `counterId` as an argument, then declare a const inside, set it to `this.state.counters.filter(c => c.id != counterId)`, and finally, set the state with `this.setState({ counters })`; this makes a new array excluding the item that was clicked, and then resets the state so that React will render the new array
+   - why pass `id` and `key` attributes in `render()` in counters.jsx? `key` is used internally by React (not accessible in counter.jsx)
+   - to avoid having to write every prop in `<Counter/>` in counters.jsx `render()`, simply write `counter={counter}` to pass the counter object itself, that way it will include all properties you add later
+
+9) Single Source of Truth
+
+   - Single Source of Truth is currently missing from the project
+   - create a Reset button
+   - each component has its own local state and the value is currently disconnected from the value property for each counter in the array
+   - to fix this, we need to remove the local state in counter.jsx and have a single source of truth
+
+10) Removing the Local State
+
+    - in counter.jsx, remove local state so that React relies on the props to receive data for the component
+    - a "Controlled" component doesn't have it's own local state, it receives data via props and raises events whenever data needs to be changed (entirely controlled by it's parent)
+
+11. Multiple Components in Sync
+
+    - in order to get multiple components to sync, you need to establish a hierarchy with parents and children
+    - App.jsx should be at the top, then navbar.jsx and counters.jsx, then branching off counters.jsx is counter.jsx
+    - hierarchy is established through import and exports at the top and bottom of .jsx files (respectively)
+    - to pass state information down to a child, counter.jsx gets data from counters.jsx via props
+
+12. Lifting the State Up
+
+    -
+
+13. Stateless Functional Components
+
+14. Destructuring Arguments
+
+15. Lifecycle Hooks
+
+16. Mounting Phase
+
+17. Updating Phase
+
+18. Unmounting Phase
+
+19. Exercise-Decrement Button
+
+20. Solution - Decrement Button
+
+21. Exercise - Like Component
+
+22. Solution - Like Component
+
+23. Summary
+
 ## Pagination, Filtering, and Sorting
 
 ## Routing
