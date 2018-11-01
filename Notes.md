@@ -279,19 +279,42 @@ NOTE: Why is Redux not taught with this course?
 
 12. Lifting the State Up
 
-    -
+    - refactor code to lift the state from the `counters.jsx` to `App.js`
+    - children can inherit methods belonging to parents via `this.props.<method>`
 
 13. Stateless Functional Components
 
+    - `navbar.jsx` doesn't have or need a state, it inherits props from it's parents, so it is a "stateless functional component"
+    - some React developers like to use SFCs when a state is not necessary, comes down to preference
+    - without state, there is no props inherited, so `props` must be passed as an argument in the arrow function
+
 14. Destructuring Arguments
+
+    - to avoid repeating `this.props.` use object descructuring to pull the relevant methods and reference them by name only
+    - this should be done inside `render()` but before `return()`
 
 15. Lifecycle Hooks
 
+    - components go through the following phases:
+    - MOUNT is when an instance of a component is created and inserted into the DOM
+    - methods can be added to the components that REACT automatically recognizes, they are known as LIFECYCLE HOOKS (in MOUNT, they are constructor, render, componentDidMount)
+    - React calls these methods in order
+    - UPDATE is when the state or props of a component are changed (LIFECYCLE HOOKS for this phase are render and componentDidUpdate)
+    - UNMOUNT is when a component is removed from the DOM (e.g. deleting a counter), the LIFECYCLE HOOK for this phase is componentWillUnmount)
+
 16. Mounting Phase
+
+    - when a component is MOUNTED, that means it is in the DOM
 
 17. Updating Phase
 
+    - happens whenever the state or props of a component change
+    - involves a change which is then rendered in the virtual DOM; React compares the virtual DOM and actual DOM and updates only the changes
+    - `componentDidUpdate(prevProps, prevSate)` allows making an AJAX call to get new data from the server
+
 18. Unmounting Phase
+
+    -
 
 19. Exercise-Decrement Button
 
