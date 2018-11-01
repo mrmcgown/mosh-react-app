@@ -314,13 +314,18 @@ NOTE: Why is Redux not taught with this course?
 
 18. Unmounting Phase
 
-    -
+    - `componentWillUnmount()` is called just before a component is removed from the DOM
 
 19. Exercise-Decrement Button
+
+    - add a decrement button ("-" symbol), change increment button to "+" symbol, and change delete button to "X"; when counter gets to "Zero", decrement button for that row is disabled
+    - use CSS grids to make a 2x2 table
 
 20. Solution - Decrement Button
 
 21. Exercise - Like Component
+
+    - add a heart (full or empty) that alternates on click, make a separate component called "like.jsx"
 
 22. Solution - Like Component
 
